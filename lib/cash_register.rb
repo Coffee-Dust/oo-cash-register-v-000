@@ -16,7 +16,7 @@ class CashRegister
     if @discount != nil
 
     else
-      return "No discount to apply"
+      return "There is no discount to apply."
     end
   end
 
