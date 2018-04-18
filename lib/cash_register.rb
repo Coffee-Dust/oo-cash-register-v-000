@@ -18,7 +18,7 @@ class CashRegister
     if @discount != nil
       discount_total = @total * @discount / 100
       @total -= discount_total
-      return "After the discount, the total comes to $#{@total}."
+      return "After the discount, the total comes to $#{@total.round}."
     else
       return "There is no discount to apply."
     end
