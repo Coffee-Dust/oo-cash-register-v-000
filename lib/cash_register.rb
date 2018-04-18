@@ -1,5 +1,5 @@
 class CashRegister
-  attr_accessor :total, :items, :discount, :last_item
+  attr_accessor :total, :items, :discount, :item_data
 
   def initialize(discount=nil)
     @total = 0.0
@@ -29,5 +29,8 @@ class CashRegister
       @total -= @item_data[items.last]
       @items.pop
     end
+  end
+  def total
+    @total.round(2)
   end
 end
