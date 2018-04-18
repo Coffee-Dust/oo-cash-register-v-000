@@ -5,13 +5,13 @@ class CashRegister
     @total = 0.0
     @items = []
     @discount = discount
-    @last_item = {}
+    @item_data = {}
   end
 
   def add_item(title, price, quantity=1)
-    @total += price.to_f * quantity
+    @total += price * quantity
     quantity.times do @items << title end
-    @last_item[title] = price
+    @item_data[title] = price
   end
 
   def apply_discount
@@ -25,6 +25,9 @@ class CashRegister
   end
 
   def void_last_transaction
-    @total -= @last_item[items.last] if @last_item[items.last].is_a? Float
+    if @item_data[items.last].is_a? Numeric
+      @total -= @item_data[items.last]
+      @items.pop
+    end
   end
 end
